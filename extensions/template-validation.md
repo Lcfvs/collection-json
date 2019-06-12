@@ -1,9 +1,10 @@
 # Template Data Validation
 
-Support template data validation by adding required fields (minimal dataset) and regular expression validation. A non-required field can still be validated by a regular expression, iff a value has been provided.
+Support template data validation by adding required fields (minimal dataset) and regular expression validation. A non-required field can still be validated by a regular expression, if a value has been provided and if the field is mutable or not, once set.
 
 1. Add an optional property to the <code>data</code> object: required (boolean)
 2. Add an optional property to the <code>data</code> object: regexp (string pattern)
+3. Add an optional property to the <code>data</code> object: mutable (boolean)
 
 ```json
 { "collection" :
@@ -13,8 +14,9 @@ Support template data validation by adding required fields (minimal dataset) and
 
     "template" : {
       "data" : [
-        {"name" : "username", "value" : "", "prompt" : "Login Name", "regexp" : "^[a-zA-Z0-9]*$", "required" : "true"},
-        {"name" : "email", "value" : "", "prompt" : "Email", "regexp" : "^[\w\d.@]*$", "required" : "true"},
+        {"name" : "username", "value" : "", "prompt" : "Login Name", "regexp" : "^[a-zA-Z0-9]*$", "required" : true, "mutable": true},
+        {"name" : "username", "value" : "", "prompt" : "Login Name", "regexp" : "^[a-zA-Z0-9]*$", "required" : true},
+        {"name" : "email", "value" : "", "prompt" : "Email", "regexp" : "^[\w\d.@]*$", "required" : true},
         {"name" : "gender", "value" : "", "prompt" : "Gender", "regexp" : "^(m|f)$"}
       ]
     }
